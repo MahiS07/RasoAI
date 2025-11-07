@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - RasoAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">RasoAI</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" class="btn btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="container profile-page-container">
+
+        <div class="profile-grid">
+            <!-- Left Side: Profile Form -->
+            <div class="form-container profile-form">
+                <form onsubmit="saveProfile(event)">
+                    <!-- Profile header with avatar upload -->
+                    <div class="profile-header">
+                        <div class="profile-picture-container">
+                            <img id="profile-pic-preview" class="profile-pic" src="images/default-avatar.png" alt="Profile picture"
+                                 onerror="this.onerror=null;this.src='https://i.pravatar.cc/80?u=rasoai';">
+                            <label for="profile-pic-upload" class="upload-label" title="Upload profile photo">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input id="profile-pic-upload" type="file" accept="image/*" aria-label="Upload profile photo">
+                        </div>
+                        <div class="profile-header-info">
+                            <h2 id="profile-name-display">Mahi Satoksar</h2>
+                            <p id="profile-email-display">mahi.s@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-form-grid">
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" value="Mahi Satoksar">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" value="19">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender">
+                                <option value="female" selected>Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="mahi.s@gmail.com">
+                        </div>
+                        <div class="form-group form-group-full">
+                            <label for="allergies">Allergies</label>
+                            <input type="text" id="allergies" name="allergies" value="Peanuts, Shellfish">
+                        </div>
+                        <div class="form-group form-group-full">
+                            <label>Dietary Preferences</label>
+                            <div class="diet-card-grid">
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="vegetarian">
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-seedling"></i>
+                                        <span>Vegetarian</span>
+                                    </div>
+                                </label>
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="vegan">
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>Vegan</span>
+                                    </div>
+                                </label>
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="pescatarian" checked>
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-fish"></i>
+                                        <span>Pescatarian</span>
+                                    </div>
+                                </label>
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="keto">
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-bacon"></i>
+                                        <span>Keto</span>
+                                    </div>
+                                </label>
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="paleo">
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-bone"></i>
+                                        <span>Paleo</span>
+                                    </div>
+                                </label>
+                                <label class="diet-card">
+                                    <input type="radio" name="diet" value="gluten-free">
+                                    <div class="diet-card-content">
+                                        <i class="fas fa-bread-slice"></i>
+                                        <span>Gluten-free</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-full">
+                            <label for="health-goals">Health Goals</label>
+                            <select id="health-goals" name="health-goals">
+                                <option value="weight-loss" selected>Weight loss</option>
+                                <option value="muscle-gain">Muscle gain</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Side: Profile Summary -->
+            <div class="profile-summary">
+                <h3>Profile Summary</h3>
+                <p><strong>Mahi Satoksar</strong> is a <strong>19-year-old pescatarian</strong> with <strong>weight management goals</strong>.</p>
+                <p><strong>Allergies:</strong> Peanuts, Shellfish</p>
+                <p>Based on your preferences, we'll suggest pescatarian recipes that avoid your allergens and support your nutritional goals with balanced meal options.</p>
+                
+                <div class="calorie-gauge">
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle class="progress-ring__circle-bg" stroke-width="12" fill="transparent" r="80" cx="90" cy="90"/>
+                        <circle class="progress-ring__circle" stroke-width="12" fill="transparent" r="80" cx="90" cy="90"/>
+                    </svg>
+                    <div class="calorie-gauge__text">
+                        <span class="calorie-gauge__value">1,800</span>
+                        <span class="calorie-gauge__label">Daily Calories</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-2">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>RasoAI</h3>
+                <p>Smart meal planning powered by artificial intelligence.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="meals.html">Meals</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: hello@rasoai.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-2">
+            <p>© 2025 RasoAI | Made by Team KJSIT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

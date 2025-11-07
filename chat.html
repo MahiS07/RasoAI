@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with RasoAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">RasoAI</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" class="btn btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Chat Interface -->
+    <div class="chat-container">
+        <!-- Upload Panel -->
+        <div class="upload-panel">
+            <h2>Upload Ingredients</h2>
+            <p class="mb-2">Take a photo or upload an image of your ingredients</p>
+            
+            <div class="upload-area">
+                <input type="file" id="file-upload" accept="image/*" hidden>
+                <label for="file-upload" class="upload-box">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drop your image here or click to upload</p>
+                    </div>
+                    <img id="upload-preview" alt="Upload preview">
+                </label>
+            </div>
+
+            <button id="send-to-ai-btn" class="btn btn-primary mt-2 btn-block">
+                <span class="btn-text">Send to RasoAI</span>
+                <span class="spinner" style="display: none;"></span>
+            </button>
+
+            <div class="upload-tips mt-2">
+                <h3>Tips for best results:</h3>
+                <ul>
+                    <li><i class="fas fa-lightbulb"></i> Ensure good lighting</li>
+                    <li><i class="fas fa-camera"></i> Clear view of ingredients</li>
+                    <li><i class="fas fa-images"></i> Multiple angles for better recognition</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chat Panel -->
+        <div class="chat-panel">
+            <div class="chat-header">
+                <h2>RasoAI Chat</h2>
+            </div>
+
+            <div class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message ai-message">
+                    Hello! I'm RasoAI, your personal meal planning assistant. Upload a photo of your ingredients, and I'll suggest some delicious recipes!
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-btn" class="btn btn-primary" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>RasoAI</h3>
+                <p>Smart meal planning powered by artificial intelligence.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="meals.html">Meals</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: hello@rasoai.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-2">
+            <p>© 2025 RasoAI | Made by Team KJSIT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize chat when page loads
+        document.addEventListener('DOMContentLoaded', initChat);
+    </script>
+</body>
+</html>

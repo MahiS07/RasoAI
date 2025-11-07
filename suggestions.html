@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Suggestions - RasoAI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">RasoAI</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="meals.html">Meals</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="index.html" class="btn btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Meal Suggestions -->
+    <div class="container suggestions-page">
+        <div class="page-header text-center">
+            <h1>Your Personalized Meal Suggestions</h1>
+            <p>Based on your preferences and available ingredients</p>
+        </div>
+
+        <div class="filters-section">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="meal-type">Meal Type</label>
+                    <select id="meal-type" class="filter-select">
+                        <option value="all">All Meals</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snacks</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="cuisine">Cuisine</label>
+                    <select id="cuisine" class="filter-select">
+                        <option value="all">All Cuisines</option>
+                        <option value="italian">Italian</option>
+                        <option value="asian">Asian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="mediterranean">Mediterranean</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="cooking-time">Cooking Time</label>
+                    <select id="cooking-time" class="filter-select">
+                        <option value="all">Any Time</option>
+                        <option value="15">Under 15 mins</option>
+                        <option value="30">Under 30 mins</option>
+                        <option value="60">Under 1 hour</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-grid suggestions-grid">
+            <!-- Suggestion Cards -->
+            <div class="card recipe-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="Vegetable Stir Fry">
+                <div class="card-content">
+                    <div class="recipe-header">
+                        <h3>Vegetable Stir Fry</h3>
+                        <span class="cooking-time"><i class="fas fa-clock"></i> 20 mins</span>
+                    </div>
+                    <p class="recipe-description">A quick and healthy stir-fry using your available vegetables.</p>
+                    <div class="recipe-stats">
+                        <span><i class="fas fa-fire"></i> 320 cal</span>
+                        <span><i class="fas fa-leaf"></i> Vegetarian</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="btn btn-primary" onclick="viewRecipe('Vegetable Stir Fry', 'A delicious mix of fresh vegetables in a savory sauce.')">View Recipe</button>
+                        <button class="btn btn-secondary" onclick="saveFavorite('Vegetable Stir Fry')" aria-label="Save to favorites"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card recipe-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=781&q=80" alt="Quinoa Bowl">
+                <div class="card-content">
+                    <div class="recipe-header">
+                        <h3>Quinoa Bowl</h3>
+                        <span class="cooking-time"><i class="fas fa-clock"></i> 25 mins</span>
+                    </div>
+                    <p class="recipe-description">Protein-rich quinoa bowl with roasted vegetables.</p>
+                    <div class="recipe-stats">
+                        <span><i class="fas fa-fire"></i> 400 cal</span>
+                        <span><i class="fas fa-leaf"></i> Vegan</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="btn btn-primary" onclick="viewRecipe('Quinoa Bowl', 'A nutritious bowl of quinoa with seasonal roasted vegetables.')">View Recipe</button>
+                        <button class="btn btn-secondary" onclick="saveFavorite('Quinoa Bowl')" aria-label="Save to favorites"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card recipe-card">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Greek Salad">
+                <div class="card-content">
+                    <div class="recipe-header">
+                        <h3>Greek Salad</h3>
+                        <span class="cooking-time"><i class="fas fa-clock"></i> 15 mins</span>
+                    </div>
+                    <p class="recipe-description">Fresh Mediterranean salad with feta cheese.</p>
+                    <div class="recipe-stats">
+                        <span><i class="fas fa-fire"></i> 280 cal</span>
+                        <span><i class="fas fa-leaf"></i> Vegetarian</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="btn btn-primary" onclick="viewRecipe('Greek Salad', 'A refreshing mix of cucumber, tomatoes, olives, and feta cheese.')">View Recipe</button>
+                        <button class="btn btn-secondary" onclick="saveFavorite('Greek Salad')" aria-label="Save to favorites"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-2">
+            <button class="btn btn-secondary" onclick="loadMoreRecipes()">
+                Load More Suggestions
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title"></h2>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>RasoAI</h3>
+                <p>Smart meal planning powered by artificial intelligence.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="meals.html">Meals</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: hello@rasoai.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center mt-2">
+            <p>© 2025 RasoAI | Made by Team KJSIT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function loadMoreRecipes() {
+            // In a real app, this would load more recipes from an API
+            alert('Loading more recipes...');
+        }
+    </script>
+</body>
+</html>
